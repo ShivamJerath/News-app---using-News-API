@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <h2>News App</h2>
+        <div class="options-container">
+            <button class="option active" onclick="selectCategory('general')">General</button>
+            <button class="option" onclick="selectCategory('business')">Business</button>
+            <button class="option" onclick="selectCategory('technology')">Technology</button>
+            <button class="option" onclick="selectCategory('sports')">Sports</button>
+            <button class="option" onclick="selectCategory('entertainment')">Entertainment</button>
+        </div>
+        <form class="search-form" onsubmit="searchNews(event)">
+            <input type="text" id="search-input" placeholder="Search news..." autocomplete="off">
+            <button type="submit">Search</button>
+        </form>
+    </nav>
+    <div class="container"></div>
+    <script src="script.js"></script>
+</body>
+</html>
