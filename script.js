@@ -6,7 +6,7 @@ let requestURL;
 
 // Fetch and display news 
 const getNews = async () => {
-    console.log('Request URL:', requestURL); // Debug URL
+    console.log('Request URL:', requestURL);
     container.innerHTML = '';
     try {
         const response = await fetch(requestURL);
@@ -15,10 +15,10 @@ const getNews = async () => {
             throw new Error(errorData.message || 'Data unavailable');
         }
         const data = await response.json();
-        console.log('API Response:', data); // Debug response
+        console.log('API Response:', data);
         generateUI(data.articles);
     } catch (error) {
-        console.error('Error:', error.message); // Debug error
+        console.error('Error:', error.message);
         container.innerHTML = `<p>Error: ${error.message}</p>`;
     }
 };
@@ -48,9 +48,10 @@ const generateUI = (articles) => {
 
 // Category selection
 const selectCategory = (category) => {
-    console.log('Selected Category:', category); // Debug category
+    console.log('Selected Category:', category);
     document.querySelectorAll('.option').forEach(el => el.classList.remove('active'));
     event.target.classList.add('active');
+    // Use localhost or proxy URL if deployed
     requestURL = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${API_KEY}`;
     getNews();
 };
@@ -59,7 +60,7 @@ const selectCategory = (category) => {
 const searchNews = (event) => {
     event.preventDefault();
     const query = document.getElementById('search-input').value.trim();
-    console.log('Search Query:', query); // Debug query
+    console.log('Search Query:', query);
     if (query) {
         requestURL = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&apiKey=${API_KEY}`;
         getNews();
